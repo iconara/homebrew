@@ -15,7 +15,7 @@ class Scala <Formula
 
   def install
     rm_f Dir["bin/*.bat"]
-    libexec.install %w[bin lib]
+    libexec.install %w[bin lib misc meta]
     man.install Dir['man/*']
     bin.mkpath
     Dir["#{libexec}/bin/*"].each do |b|
