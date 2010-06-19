@@ -2,9 +2,9 @@ require 'formula'
 
 class Scala <Formula
   homepage 'http://www.scala-lang.org/'
-  url 'http://www.scala-lang.org/downloads/distrib/files/scala-2.8.0.RC5.tgz'
-  version '2.8.0.RC5'
-  md5 '52658e7e34f8670c436a636a2914ca1d'
+  url 'http://www.scala-lang.org/downloads/distrib/files/scala-2.8.0.RC6.tgz'
+  version '2.8.0.RC6'
+  md5 'dbd15c210478bf774f39541dca835be1'
 
   def shim_script target
     <<-EOS.undent
