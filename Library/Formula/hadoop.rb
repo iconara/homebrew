@@ -1,9 +1,10 @@
 require 'formula'
 
 class Hadoop < Formula
-  url 'http://www.carfab.com/apachesoftware/hadoop/core/hadoop-0.20.2/hadoop-0.20.2.tar.gz'
+  url 'http://archive.cloudera.com/cdh/2/hadoop-0.20.1+169.89.tar.gz'
+  version '0.20.1'
   homepage 'http://hadoop.apache.org/common/'
-  md5 '8f40198ed18bef28aeea1401ec536cb9'
+  md5 'cc688c3988ebbba1eccc6201f6cc3302'
 
   def shim_script target
     <<-EOS.undent
@@ -18,8 +19,10 @@ class Hadoop < Formula
     libexec.install Dir['*.jar']
     bin.mkpath
     Dir["#{libexec}/bin/*"].each do |b|
-      n = Pathname.new(b).basename
-      (bin+n).write shim_script(n)
+      unless b =~ /\.sh$/
+        n = Pathname.new(b).basename
+        (bin+n).write shim_script(n)
+      end
     end
   end
 
